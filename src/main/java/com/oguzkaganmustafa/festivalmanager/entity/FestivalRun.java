@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -14,8 +15,12 @@ import javax.persistence.*;
 public class FestivalRun {
     @EmbeddedId
     private FestivalRunId festivalRunId;
+
     private String duration;
 
     @ManyToOne
     private Festival festival;
+
+    @OneToMany(mappedBy = "festivalRun")
+    List<Event> eventList;
 }
