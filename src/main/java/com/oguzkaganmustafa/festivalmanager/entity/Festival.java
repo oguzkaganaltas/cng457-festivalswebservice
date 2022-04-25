@@ -13,11 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "festivalId")
 public class Festival {
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int festivalId;
 
     private String festivalName;
@@ -25,5 +23,4 @@ public class Festival {
 
     @OneToMany(mappedBy = "festival")
     private List<FestivalRun> festivalRunList;
-
 }
