@@ -15,11 +15,13 @@ import java.sql.Date;
 public class Event {
 
     @Id
-    @Column(name = "eid")
     private int eventId;
     private String name;
     private String duration;
     private String description;
     private Date date;
+
+    @ManyToOne
+    FestivalRun festivalRun;
 }
 
