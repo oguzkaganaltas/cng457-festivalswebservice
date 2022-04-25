@@ -6,8 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,8 +15,15 @@ import javax.persistence.Id;
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "festivalId")
 public class Festival {
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int festivalId;
+
     private String festivalName;
     private String place;
+
+    @OneToMany(mappedBy = "festival")
+    private List<FestivalRun> festivalRunList;
+
 }
