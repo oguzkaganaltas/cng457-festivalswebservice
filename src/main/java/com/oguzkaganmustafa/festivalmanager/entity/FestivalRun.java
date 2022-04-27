@@ -13,8 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FestivalRun {
-    @EmbeddedId
-    private FestivalRunId festivalRunId;
 
     private String duration;
 
