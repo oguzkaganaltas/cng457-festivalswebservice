@@ -13,6 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FestivalRun {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int festRunId;
 
     private String duration;
 
