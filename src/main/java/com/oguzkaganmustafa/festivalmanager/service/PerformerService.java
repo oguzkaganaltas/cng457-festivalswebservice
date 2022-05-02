@@ -11,7 +11,7 @@ public class PerformerService {
     @Autowired
     PerformerRepository performerRepository;
 
-    public Performer savePerformer(Performer p){
-        return performerRepository.save(p);
+    public Performer savePerformer(Performer performer){
+        return performerRepository.save(performer);
     }
 }

@@ -13,9 +13,9 @@ public class PerformerController {
     @Autowired
     private PerformerService performerService;
 
-    @PostMapping("/addorganiser")
-    public Performer saveCourse(@RequestBody Performer p){
+    @PostMapping("/addperformer")
+    public Performer addPerformer(@RequestBody Performer performer){
 
-        return performerService.savePerformer(p);
+        return performerService.savePerformer(performer);
     }
 }
