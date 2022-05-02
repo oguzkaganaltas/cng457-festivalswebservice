@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,8 +15,12 @@ import javax.persistence.Id;
 
 public class Organiser {
     @Id
-    String email;
-    String name;
-    String surname;
-    String phoneNumber;
+    private String email;
+    private String name;
+    private String  surname;
+    private String phoneNumber;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "FestivalOrganisers", joinColumns = @JoinColumn(name = "email"),inverseJoinColumns = @JoinColumn(name = "festRunId"))
+    private List<FestivalRun> festivalRuns;
 }
