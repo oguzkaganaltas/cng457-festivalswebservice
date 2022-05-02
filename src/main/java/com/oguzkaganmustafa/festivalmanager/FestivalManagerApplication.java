@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FestivalmanagerApplication {
+public class FestivalManagerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FestivalmanagerApplication.class, args);
+		SpringApplication.run(FestivalManagerApplication.class, args);
 	}
 
 }

@@ -22,5 +22,8 @@ public class FestivalRun {
     private Festival festival;
 
     @OneToMany(mappedBy = "festivalRun")
-    List<Event> eventList;
+    private List<Event> eventList;
+
+    @ManyToMany(mappedBy = "festivalRuns", fetch = FetchType.EAGER)
+    private List<Organiser> organisers;
 }
