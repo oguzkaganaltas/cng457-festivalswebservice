@@ -14,9 +14,9 @@ public class OrganiserController {
     private OrganiserService organiserService;
 
     @PostMapping("/addorganiser")
-    public Organiser saveCourse(@RequestBody Organiser o){
+    public Organiser addOrganiser(@RequestBody Organiser organiser){
 
-        return organiserService.saveOrganiser(o);
+        return organiserService.saveOrganiser(organiser);
     }
 
 }

@@ -11,7 +11,7 @@ public class OrganiserService {
     @Autowired
     OrganiserRepository organiserRepository;
 
-    public Organiser saveOrganiser(Organiser o){
-        return organiserRepository.save(o);
+    public Organiser saveOrganiser(Organiser organiser){
+        return organiserRepository.save(organiser);
     }
 }
