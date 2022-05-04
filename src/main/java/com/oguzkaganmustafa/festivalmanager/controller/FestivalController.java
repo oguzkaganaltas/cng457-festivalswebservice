@@ -16,8 +16,12 @@ public class FestivalController {
     public Festival addFestival(@RequestBody Festival festival){
         return festivalService.saveFestival(festival);
     }
+
     @GetMapping("/getfestival/{festId}")
     public Festival getFestival(@PathVariable int festId){
         return festivalService.getFestival(festId);
     }
+
+    @GetMapping("/getallfestivals")
+    public List<Festival> getAllFestivals(){ return festivalService.getAllFestivals(); }
 }
