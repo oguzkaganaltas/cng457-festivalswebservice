@@ -19,4 +19,8 @@ public class FestivalService {
     public Festival getFestival(int id){
         return festivalRepository.findById(id).orElse(null);
     }
+
+    public List<Festival> getAllFestivals() {
+        return festivalRepository.findAll();
+    }
 }
