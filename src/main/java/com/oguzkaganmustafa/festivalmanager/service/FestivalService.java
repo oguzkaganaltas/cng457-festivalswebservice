@@ -5,6 +5,8 @@ import com.oguzkaganmustafa.festivalmanager.repository.FestivalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FestivalService {
     @Autowired
@@ -14,4 +16,7 @@ public class FestivalService {
         return festivalRepository.save(festival);
     }
 
+    public Festival getFestival(int id){
+        return festivalRepository.findById(id).orElse(null);
+    }
 }
