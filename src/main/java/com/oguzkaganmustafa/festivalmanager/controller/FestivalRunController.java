@@ -5,7 +5,9 @@ import com.oguzkaganmustafa.festivalmanager.service.FestivalRunService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
 public class FestivalRunController {
 
     @Autowired
