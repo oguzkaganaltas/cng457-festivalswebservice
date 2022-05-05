@@ -23,4 +23,9 @@ public class FestivalRunController {
         return festivalRunService.getFestRunById(festRunId);
     }
 
+    @GetMapping("/getallfestivalruns/{festId}")
+    public List<FestivalRun> getAllFestivalRunOfFestival(@PathVariable int festId){
+        return festivalRunService.getAllFestRunByFestId(festId);
+    }
+
 }
