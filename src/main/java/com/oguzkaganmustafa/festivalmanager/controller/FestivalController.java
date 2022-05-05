@@ -18,9 +18,7 @@ public class FestivalController {
     }
 
     @GetMapping("/getfestival/{festId}")
-    public Festival getFestival(@PathVariable int festId){
-        return festivalService.getFestival(festId);
-    }
+    public Festival getFestival(@PathVariable int festId) { return festivalService.getFestival(festId); }
 
     @GetMapping("/getallfestivals")
     public List<Festival> getAllFestivals(){ return festivalService.getAllFestivals(); }
