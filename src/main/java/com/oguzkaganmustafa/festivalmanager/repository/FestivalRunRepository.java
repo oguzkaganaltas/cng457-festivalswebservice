@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface FestivalRunRepository extends JpaRepository<FestivalRun, Integer> {
     List<FestivalRun> findByFestival_FestivalId(int festId);
+    List<FestivalRun> findByDurationLessThan(int threshold);
 }
