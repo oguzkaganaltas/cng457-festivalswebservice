@@ -19,7 +19,7 @@ public class FestivalRun {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int festRunId;
 
-    private String duration;
+    private int duration;
 
     @ManyToOne
     private Festival festival;
