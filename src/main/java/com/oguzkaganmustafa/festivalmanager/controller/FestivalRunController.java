@@ -17,4 +17,10 @@ public class FestivalRunController {
     public FestivalRun addFestivalRun(@RequestBody FestivalRun festivalRun){
         return festivalRunService.saveFestivalRun(festivalRun);
     }
+
+    @GetMapping("/getfestivalrun/{festRunId}")
+    public FestivalRun getFestivalRunById(@PathVariable int festRunId){
+        return festivalRunService.getFestRunById(festRunId);
+    }
+
 }
