@@ -22,4 +22,7 @@ public class FestivalController {
 
     @GetMapping("/getallfestivals")
     public List<Festival> getAllFestivals(){ return festivalService.getAllFestivals(); }
+
+    @GetMapping("/getfestivalsforacity/{city}")
+    public List<Festival> getAllFestivalsIn(@PathVariable String city){ return festivalService.getAllFestivalsIn(city); }
 }
