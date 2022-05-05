@@ -3,10 +3,10 @@ package com.oguzkaganmustafa.festivalmanager.controller;
 import com.oguzkaganmustafa.festivalmanager.entity.OtherActivities;
 import com.oguzkaganmustafa.festivalmanager.service.OtherActivitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class OtherActivitiesController {
 
     @Autowired
