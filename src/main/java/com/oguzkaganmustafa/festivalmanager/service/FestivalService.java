@@ -23,4 +23,8 @@ public class FestivalService {
     public List<Festival> getAllFestivals() {
         return festivalRepository.findAll();
     }
+
+    public List<Festival> getAllFestivalsIn(String city) {
+        return festivalRepository.findByPlace(city);
+    }
 }
