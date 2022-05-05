@@ -17,4 +17,15 @@ public class FestivalRunService {
         return festivalRunRepository.save(festivalRun);
     }
 
+    public FestivalRun getFestRunById(int festRunId) {
+        return festivalRunRepository.findById(festRunId).orElse(null);
+    }
+
+    public List<FestivalRun> getAllFestRunByFestId(int festId){
+        return festivalRunRepository.findByFestival_FestivalId(festId);
+    }
+
+    public List<FestivalRun> getAllFestRunByThreshold(int threshold){
+        return festivalRunRepository.findByDurationLessThan(threshold);
+    }
 }
