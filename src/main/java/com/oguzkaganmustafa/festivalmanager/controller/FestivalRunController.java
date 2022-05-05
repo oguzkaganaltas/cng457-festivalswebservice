@@ -28,4 +28,8 @@ public class FestivalRunController {
         return festivalRunService.getAllFestRunByFestId(festId);
     }
 
+    @GetMapping("getshortfestivalrun/{duration}")
+    public List<FestivalRun> getAllFestivalRunLessThan(@PathVariable int duration){
+        return festivalRunService.getAllFestRunByThreshold(duration);
+    }
 }
