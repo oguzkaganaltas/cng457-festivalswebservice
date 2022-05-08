@@ -14,6 +14,6 @@ import java.util.List;
 public class Shows extends Event{
     private String showName;
 
-    /*@ManyToMany(mappedBy = "shows", fetch = FetchType.EAGER)
-    private List<Performer> performers;*/
+    @ManyToMany(mappedBy = "shows", fetch = FetchType.LAZY)
+    private List<Performer> performers;
 }
