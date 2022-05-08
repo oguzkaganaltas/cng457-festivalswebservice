@@ -12,13 +12,18 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 public class Performer{
+    @Id
+    private int performerId;
+
+    private String name;
+    private String  surname;
 
     @OneToMany(mappedBy = "performer")
     private List<Concert> concertList;
 
-   /* @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "ShowPerformers",
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "ShowsPerformers",
             joinColumns = @JoinColumn(name = "performerID"),
             inverseJoinColumns = @JoinColumn(name = "eventId"))
-    private List<Shows> shows;*/
+    private List<Shows> shows;
 }
