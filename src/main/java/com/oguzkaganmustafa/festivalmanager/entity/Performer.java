@@ -1,6 +1,5 @@
 package com.oguzkaganmustafa.festivalmanager.entity;
 
-import com.oguzkaganmustafa.festivalmanager.helper.PerformerID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,8 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 public class Performer{
-    @EmbeddedId
-    private PerformerID performerID;
 
     @OneToMany(mappedBy = "performer")
     private List<Concert> concertList;
