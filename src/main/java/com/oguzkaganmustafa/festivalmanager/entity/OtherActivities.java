@@ -12,5 +12,5 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @Entity
 public class OtherActivities extends Event {
-    private String other;
+
 }
