@@ -5,12 +5,20 @@ import com.oguzkaganmustafa.festivalmanager.repository.PerformerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * PerformerService to manage repository and database communication.
+ */
 @Service
 public class PerformerService {
 
     @Autowired
     PerformerRepository performerRepository;
 
+    /**
+     * It takes a performer parameter and deliver it to performerRepository to save content to the database.
+     * @param performer
+     * @return
+     */
     public Performer savePerformer(Performer performer){
         return performerRepository.save(performer);
     }

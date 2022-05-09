@@ -8,6 +8,9 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * Event entity to create a general event. It has ManyToOne FestivalRun connection to keep which FestivalRun it belongs to.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +19,7 @@ import java.util.List;
 public class Event {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int eventId;
     private String name;
     private String duration;

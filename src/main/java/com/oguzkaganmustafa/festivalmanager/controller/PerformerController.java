@@ -7,12 +7,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * PerformerController to manage web service of it.
+ */
 @RestController
 public class PerformerController {
 
     @Autowired
     private PerformerService performerService;
 
+    /**
+     * It takes a request body and deliver it to the performerService to save it to the database.
+     * @param performer
+     * @return
+     */
     @PostMapping("/addperformer")
     public Performer addPerformer(@RequestBody Performer performer){
 
