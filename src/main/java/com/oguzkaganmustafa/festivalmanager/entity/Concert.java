@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @Entity
 public class Concert extends Event{
-    private String concert;
 
     @ManyToOne
     private Performer performer;
