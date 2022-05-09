@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Organiser Entity. It has ManyToMany FestivalRun connection to keep which organisers responsible from which FestivalRun.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -8,6 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import java.util.List;
 
+/**
+ * Shows entity which extends Event. It has ManyToMany performer connection to keep performers name in it.
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

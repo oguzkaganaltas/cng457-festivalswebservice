@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Festival entity. It has OneToMany FestivalRun connection to keep different FestivalRuns in it.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
