@@ -16,5 +16,4 @@ public class Concert extends Event{
 
     @ManyToOne
     private Performer performer;
-
 }
