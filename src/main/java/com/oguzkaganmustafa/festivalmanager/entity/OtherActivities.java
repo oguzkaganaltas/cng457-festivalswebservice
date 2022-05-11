@@ -9,6 +9,7 @@ import javax.persistence.Entity;
  * OtherActivities entity which extends Event.
  */
 
+@AllArgsConstructor
 @Entity
 public class OtherActivities extends Event {
 
