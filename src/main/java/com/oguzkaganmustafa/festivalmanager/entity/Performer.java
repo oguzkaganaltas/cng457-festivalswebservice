@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "performerId")
 public class Performer{
     @Id
     private int performerId;
@@ -30,7 +30,7 @@ public class Performer{
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "ShowsPerformers",
-            joinColumns = @JoinColumn(name = "performerID"),
+            joinColumns = @JoinColumn(name = "performerId"),
             inverseJoinColumns = @JoinColumn(name = "eventId"))
     private List<Shows> shows;
 }
