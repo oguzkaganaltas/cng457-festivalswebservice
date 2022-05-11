@@ -15,8 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 public class Shows extends Event{
-    private String showName;
-
     @ManyToMany(mappedBy = "shows", fetch = FetchType.LAZY)
     private List<Performer> performers;
 }
