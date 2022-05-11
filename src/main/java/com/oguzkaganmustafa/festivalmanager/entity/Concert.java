@@ -15,5 +15,4 @@ import javax.persistence.ManyToOne;
 public class Concert extends Event{
     @ManyToOne
     private Performer performer;
-
 }
