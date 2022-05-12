@@ -25,7 +25,7 @@ public class Organiser {
     private String  surname;
     private String phoneNumber;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany()
     @JoinTable(name = "FestivalOrganisers", joinColumns = @JoinColumn(name = "email"),inverseJoinColumns = @JoinColumn(name = "festRunId"))
     private List<FestivalRun> festivalRuns;
 }
