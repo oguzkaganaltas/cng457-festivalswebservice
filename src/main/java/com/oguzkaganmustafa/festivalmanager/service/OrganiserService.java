@@ -25,12 +25,14 @@ public class OrganiserService {
      */
     public Organiser saveOrganiser(Organiser organiser){
 
+        Organiser organiser1 = organiserRepository.save(organiser);
+
         for (FestivalRun festivalRun :
                 organiser.getFestivalRuns()) {
             FestivalRun festivalRun1 = festivalRunRepository.getById(festivalRun.getFestRunId());
             festivalRun1.getOrganisers().add(organiser);
             festivalRunRepository.save(festivalRun1);
         }
-        return organiserRepository.save(organiser);
+        return organiser1;
     }
 }
