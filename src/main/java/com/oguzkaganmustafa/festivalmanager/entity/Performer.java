@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "performerId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "performerId", scope = Performer.class)
 public class Performer{
     @Id
     private int performerId;

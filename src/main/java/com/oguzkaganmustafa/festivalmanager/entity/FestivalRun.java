@@ -18,7 +18,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "festRunId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "festRunId", scope = FestivalRun.class)
 public class FestivalRun {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
