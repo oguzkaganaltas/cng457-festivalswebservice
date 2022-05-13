@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +19,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "festRunId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "festRunId", scope = FestivalRun.class)
 public class FestivalRun {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +27,17 @@ public class FestivalRun {
 
     private int duration;
 
+    private Date date;
+
     @ManyToOne
     private Festival festival;
 
     @OneToMany(mappedBy = "festivalRun")
     private List<Event> eventList;
 
-    @ManyToMany(mappedBy = "festivalRuns", fetch = FetchType.EAGER)
-    private List<Organiser> organisers;
+    @ManyToMany()
+    @JoinTable(name = "FestivalOrganisers",
+            joinColumns = @JoinColumn(name = "festRunId"),
+            inverseJoinColumns = @JoinColumn(name = "email"))
+    private List<Organiser> organisers = new ArrayList<>();
 }

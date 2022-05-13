@@ -9,6 +9,9 @@ import java.util.List;
  * FestivalRunRepository to manage database communication.
  */
 public interface FestivalRunRepository extends JpaRepository<FestivalRun, Integer> {
+
+
+
     /**
      * It takes a festivalId and return all festivalRuns belongs to that festival.
      * @param festId
