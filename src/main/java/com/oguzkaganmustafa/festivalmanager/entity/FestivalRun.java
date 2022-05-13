@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,8 @@ public class FestivalRun {
     private int festRunId;
 
     private int duration;
+
+    private Date date;
 
     @ManyToOne
     private Festival festival;
