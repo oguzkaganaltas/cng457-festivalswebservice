@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +26,6 @@ public class Organiser {
     private String  surname;
     private String phoneNumber;
 
-    @ManyToMany()
-    @JoinTable(name = "FestivalOrganisers", joinColumns = @JoinColumn(name = "email"),inverseJoinColumns = @JoinColumn(name = "festRunId"))
-    private List<FestivalRun> festivalRuns;
+    @ManyToMany(mappedBy = "organisers")
+    private List<FestivalRun> festivalRuns  =new ArrayList<>();
 }

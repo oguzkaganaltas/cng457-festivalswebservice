@@ -7,6 +7,8 @@ import com.oguzkaganmustafa.festivalmanager.repository.OrganiserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.stream.Collectors;
+
 /**
  * OrganiserService to manage repository and database communication.
  */
@@ -25,14 +27,18 @@ public class OrganiserService {
      */
     public Organiser saveOrganiser(Organiser organiser){
 
-        Organiser organiser1 = organiserRepository.save(organiser);
+        Organiser newOrganiser = new Organiser();
+        newOrganiser.setEmail(organiser.getEmail());
+        newOrganiser.setName(organiser.getName());
+        newOrganiser.setSurname(organiser.getSurname());
+        newOrganiser.setPhoneNumber(organiser.getPhoneNumber());
 
-        for (FestivalRun festivalRun :
-                organiser.getFestivalRuns()) {
-            FestivalRun festivalRun1 = festivalRunRepository.getById(festivalRun.getFestRunId());
-            festivalRun1.getOrganisers().add(organiser);
-            festivalRunRepository.save(festivalRun1);
-        }
-        return organiser1;
+        organiser.getFestivalRuns()
+                .forEach(v -> {
+                            FestivalRun festivalRun = festivalRunRepository.getById(v.getFestRunId());
+                            festivalRun.getOrganisers().add(newOrganiser);
+                        });
+
+        return organiserRepository.save(newOrganiser);
     }
 }
