@@ -7,7 +7,7 @@ import com.oguzkaganmustafa.festivalmanager.repository.OrganiserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 /**
  * OrganiserService to manage repository and database communication.
@@ -33,11 +33,39 @@ public class OrganiserService {
         newOrganiser.setSurname(organiser.getSurname());
         newOrganiser.setPhoneNumber(organiser.getPhoneNumber());
 
-        organiser.getFestivalRuns()
-                .forEach(v -> {
-                            FestivalRun festivalRun = festivalRunRepository.getById(v.getFestRunId());
-                            festivalRun.getOrganisers().add(newOrganiser);
-                        });
+        Optional<Organiser> dbOrganiser = organiserRepository.findById(organiser.getEmail());
+
+        if(dbOrganiser.isEmpty()){
+            System.out.println("null");
+            organiser.getFestivalRuns()
+                    .forEach(v -> {
+                        FestivalRun festivalRun = festivalRunRepository.getById(v.getFestRunId());
+                        festivalRun.getOrganisers().add(newOrganiser);
+                    });
+        }
+        else{
+            System.out.println("not null");
+
+            for(int i = 0; i < organiser.getFestivalRuns().size(); i++){
+                int search = 0;
+                FestivalRun festivalRun = festivalRunRepository.findById(organiser.getFestivalRuns().get(i).getFestRunId()).orElse(null);
+                for(int j = 0; j < festivalRun.getOrganisers().size(); j++){
+                    if(festivalRun.getOrganisers().get(j).getEmail() == organiser.getEmail()){
+                        search = 1;
+                    }
+                }
+                if(search == 1){
+                    System.out.println("We have it");
+                }
+                else{
+                    System.out.println("We don't have it");
+
+                    festivalRun.getOrganisers().add(newOrganiser);
+                }
+            }
+        }
+
+
 
         return organiserRepository.save(newOrganiser);
     }

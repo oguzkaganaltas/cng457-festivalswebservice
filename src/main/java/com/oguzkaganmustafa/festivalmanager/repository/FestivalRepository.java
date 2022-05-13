@@ -15,4 +15,5 @@ public interface FestivalRepository extends JpaRepository<Festival, Integer> {
      * @return
      */
     List<Festival> findByPlace(String city);
+
 }
