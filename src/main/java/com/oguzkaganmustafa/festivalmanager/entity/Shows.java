@@ -1,6 +1,7 @@
 package com.oguzkaganmustafa.festivalmanager.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Data
 public class Shows extends Event{
 
     @ManyToMany(mappedBy = "shows", fetch = FetchType.LAZY)
