@@ -10,6 +10,12 @@ import java.util.List;
  * OrganiserRepository to manage database communication.
  */
 public interface OrganiserRepository extends JpaRepository<Organiser, String> {
+
+    /**
+     * Get a list of organisers who have
+     * organised multiple festival runs
+     * @return Organiser
+     */
     @Query(value = "SELECT o.* from organiser o JOIN " +
             "(SELECT email, count(fest_run_id) num_runs from festival_organisers group by email HAVING num_runs > 1) " +
             "as q1 on q1.email = o.email",nativeQuery = true)
