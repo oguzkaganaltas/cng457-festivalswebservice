@@ -4,9 +4,9 @@ package com.oguzkaganmustafa.festivalmanager.controller;
 import com.oguzkaganmustafa.festivalmanager.entity.Concert;
 import com.oguzkaganmustafa.festivalmanager.service.ConcertService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * ConcertController to manage web service.
@@ -26,4 +26,7 @@ public class ConcertController {
     public Concert addConcert(@RequestBody Concert concert){
         return concertService.saveConcert(concert);
     }
+
+    @GetMapping("/concertsbydescription")
+    public List<Concert> getByDescriptionContaining(@RequestParam(name="key", required = true) String key){ return concertService.getConcertDescContains(key);}
 }
