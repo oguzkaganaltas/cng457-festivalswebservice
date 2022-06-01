@@ -54,7 +54,16 @@ public class FestivalController {
      * @return
      */
     @GetMapping("/festivalsbyname/{name}")
-    public List<Festival> gtFestivalByName(@PathVariable String name) {
+    public List<Festival> getFestivalByName(@PathVariable String name) {
         return festivalService.getFestivalByName(name);
+    }
+
+    /**
+     * It returns the most popular festivals based on max festival runs.
+     * @return List
+     */
+    @GetMapping("/popularfestivals")
+    public List<Festival> getMostPopularFestivals() {
+        return festivalService.getMostPopularFestivals();
     }
 }

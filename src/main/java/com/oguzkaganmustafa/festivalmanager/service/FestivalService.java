@@ -61,4 +61,12 @@ public class FestivalService {
         return festivalRepository.findFestivalsByName(name);
     }
 
+    /**
+     * Gets the most popular festivals
+     * @return List
+     */
+    public List<Festival> getMostPopularFestivals() {
+        return festivalRepository.findMostPopularFestivals();
+    }
+
 }

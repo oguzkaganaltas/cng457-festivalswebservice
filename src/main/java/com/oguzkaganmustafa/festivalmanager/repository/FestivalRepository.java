@@ -24,4 +24,10 @@ public interface FestivalRepository extends JpaRepository<Festival, Integer> {
     @Query(value = "SELECT * FROM festival WHERE festivalName = ?1",nativeQuery = true)
     List<Festival> findFestivalsByNameNative(String name);
 
+    @Query(value = "SELECT f.* from festival f JOIN (select q1.festival_festival_id, max(q1.num_runs) from \n" +
+            "(SELECT festival_festival_id, count(festival_festival_id) num_runs \n" +
+            "from festival_run \n" +
+            "group by festival_festival_id) as q1) as q2 on q2.festival_festival_id= f.festival_id ", nativeQuery = true)
+    List<Festival> findMostPopularFestivals();
+
 }
