@@ -47,4 +47,14 @@ public class FestivalController {
      */
     @GetMapping("/getfestivalsforacity/{city}")
     public List<Festival> getAllFestivalsIn(@PathVariable String city){ return festivalService.getAllFestivalsIn(city); }
+
+    /**
+     * It takes a name parameter and deliver it to festivalService in order to get all Festivals happening on that name.
+     * @param name
+     * @return
+     */
+    @GetMapping("/festivalsbyname/{name}")
+    public List<Festival> gtFestivalByName(@PathVariable String name) {
+        return festivalService.getFestivalByName(name);
+    }
 }
