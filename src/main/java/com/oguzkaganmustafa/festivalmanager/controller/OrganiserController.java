@@ -3,9 +3,9 @@ package com.oguzkaganmustafa.festivalmanager.controller;
 import com.oguzkaganmustafa.festivalmanager.entity.Organiser;
 import com.oguzkaganmustafa.festivalmanager.service.OrganiserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * OrganiserController to manage web service of it.
@@ -27,4 +27,8 @@ public class OrganiserController {
         return organiserService.saveOrganiser(organiser);
     }
 
+    @GetMapping("/organisersearch")
+    public List<Organiser> organiserSearch(@RequestParam String name, @RequestParam String phone, @RequestParam String email){
+        return organiserService.organiserSearch(name,phone,email);
+    }
 }

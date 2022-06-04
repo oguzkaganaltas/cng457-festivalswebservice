@@ -23,7 +23,7 @@ public class Organiser {
     @Id
     private String email;
     private String name;
-    private String  surname;
+    private String surname;
     private String phoneNumber;
 
     @ManyToMany(mappedBy = "organisers")
