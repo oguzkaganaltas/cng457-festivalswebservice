@@ -9,6 +9,8 @@ import com.oguzkaganmustafa.festivalmanager.repository.ShowsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * ShowsService to manage repository and database communication.
  */
@@ -64,5 +66,9 @@ public class ShowsService {
             return showsRepository.save(newShow);
         }
         return null;
+    }
+
+    public List<Shows> getShowsByDuration(int duration1, int duration2){
+        return showsRepository.findByDurationBetween(duration1, duration2);
     }
 }

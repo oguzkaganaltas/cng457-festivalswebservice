@@ -7,6 +7,7 @@ import com.oguzkaganmustafa.festivalmanager.repository.OrganiserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -68,5 +69,10 @@ public class OrganiserService {
 
 
         return organiserRepository.save(newOrganiser);
+    }
+
+    public List<Organiser> organiserSearch(String name, String phone, String email){
+        return organiserRepository.findByNameContainingOrPhoneNumberEqualsOrEmailStartingWithOrSurnameContaining(name,phone,email,name);
+
     }
 }

@@ -25,7 +25,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int eventId;
     private String name;
-    private String duration;
+    private int duration;
     private String description;
     private Date date;
 
