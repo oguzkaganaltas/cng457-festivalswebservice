@@ -71,9 +71,9 @@ public class OrganiserService {
         return organiserRepository.save(newOrganiser);
     }
 
-    public List<Organiser> organiserSearch(String name, String phone, String email){
-        return organiserRepository.findByNameContainingOrPhoneNumberEqualsOrEmailStartingWithOrSurnameContaining(name,phone,email,name);
-
+    public List<Organiser> organiserSearch(String name, String phone, String email) {
+        return organiserRepository.findByNameContainingOrPhoneNumberEqualsOrEmailStartingWithOrSurnameContaining(name, phone, email, name);
+    }
 
     public List<Organiser> getOrganiserWithMultipleRuns(){
         return organiserRepository.getOrganiserWithMultipleRunsNative();

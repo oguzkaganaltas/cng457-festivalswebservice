@@ -29,4 +29,9 @@ public class ConcertController {
 
     @GetMapping("/concertsbydescription")
     public List<Concert> getByDescriptionContaining(@RequestParam(name="key", required = true) String key){ return concertService.getConcertDescContains(key);}
+
+    @GetMapping("/longestconcerts")
+    public  List<Concert> getLongestConcerts(){
+        return concertService.getLongestConcerts();
+    }
 }
