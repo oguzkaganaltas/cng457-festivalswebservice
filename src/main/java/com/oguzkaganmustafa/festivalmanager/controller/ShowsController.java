@@ -30,4 +30,9 @@ public class ShowsController {
     public List<Shows> getShowsByDuration(@RequestParam int duration1, @RequestParam int duration2){
         return showsService.getShowsByDuration(duration1,duration2);
     }
+
+    @GetMapping("/crowdedshows")
+    public List<Shows> getCrowdedShows(){
+        return showsService.getCrowdedShows();
+    }
 }

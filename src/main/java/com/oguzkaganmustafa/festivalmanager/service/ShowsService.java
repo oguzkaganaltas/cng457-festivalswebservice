@@ -9,6 +9,8 @@ import com.oguzkaganmustafa.festivalmanager.repository.ShowsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -70,5 +72,27 @@ public class ShowsService {
 
     public List<Shows> getShowsByDuration(int duration1, int duration2){
         return showsRepository.findByDurationBetween(duration1, duration2);
+    }
+
+    public List<Shows> getCrowdedShows() {
+        List<Shows> showsList = showsRepository.findAll();
+        List<Shows> result = new ArrayList<>();
+
+        showsList.sort(new Comparator<Shows>() {
+            @Override
+            public int compare(Shows o1, Shows o2) {
+                return o2.getPerformers().size() - o1.getPerformers().size();
+            }
+        });
+
+        for (Shows show :
+                showsList) {
+            if (show.getPerformers().size() == showsList.get(0).getPerformers().size()) {
+                result.add(show);
+            }else {
+                break;
+            }
+        }
+        return result;
     }
 }
