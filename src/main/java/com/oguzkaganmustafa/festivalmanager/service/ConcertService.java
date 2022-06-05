@@ -9,6 +9,8 @@ import com.oguzkaganmustafa.festivalmanager.repository.PerformerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * ConcertService to manage repository and database communication.
  */
@@ -70,6 +72,10 @@ public class ConcertService {
 
         return null;
 
+    }
+
+    public List<Concert> getConcertDescContains(String str){
+        return concertRepository.findByDescriptionContains(str);
     }
 
 }

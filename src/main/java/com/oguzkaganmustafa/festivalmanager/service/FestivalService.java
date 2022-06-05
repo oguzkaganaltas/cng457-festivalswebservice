@@ -50,4 +50,23 @@ public class FestivalService {
     public List<Festival> getAllFestivalsIn(String city) {
         return festivalRepository.findByPlace(city);
     }
+
+    /**
+     * It takes a string parameter for name and deliver it to festivalRepository to search that name on database and
+     * get all festival happening in that name.
+     * @param name
+     * @return
+     */
+    public List<Festival> getFestivalByName(String name) {
+        return festivalRepository.findFestivalsByName(name);
+    }
+
+    /**
+     * Gets the most popular festivals
+     * @return List
+     */
+    public List<Festival> getMostPopularFestivals() {
+        return festivalRepository.findMostPopularFestivals();
+    }
+
 }
