@@ -9,6 +9,9 @@ import com.oguzkaganmustafa.festivalmanager.repository.PerformerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -76,6 +79,32 @@ public class ConcertService {
 
     public List<Concert> getConcertDescContains(String str){
         return concertRepository.findByDescriptionContains(str);
+    }
+
+    public List<Concert> getLongestConcerts(){
+        List<Concert> concerts = concertRepository.findAll();
+
+        List<Concert> result = new ArrayList<>();
+
+        //sorting the list descending(bigger first)
+        concerts.sort(new Comparator<Concert>() {
+            @Override
+            public int compare(Concert o1, Concert o2) {
+                return o2.getDuration() - o1.getDuration();
+            }
+        });
+
+        //finding the nMax elements and break for performance.
+        for (Concert concert :
+                concerts) {
+            if (concerts.get(0).getDuration() == concert.getDuration()) {
+                result.add(concert);
+            }else{
+                break;
+            }
+        }
+
+        return result;
     }
 
 }
