@@ -20,6 +20,7 @@ import java.util.List;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "performerId", scope = Performer.class)
 public class Performer{
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int performerId;
 
     private String name;

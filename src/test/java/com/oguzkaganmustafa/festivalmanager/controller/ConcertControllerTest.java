@@ -1,8 +1,7 @@
 package com.oguzkaganmustafa.festivalmanager.controller;
 
 import com.oguzkaganmustafa.festivalmanager.FestivalManagerApplication;
-import com.oguzkaganmustafa.festivalmanager.entity.Concert;
-import com.oguzkaganmustafa.festivalmanager.entity.Shows;
+import com.oguzkaganmustafa.festivalmanager.entity.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,11 +21,11 @@ public class ConcertControllerTest {
 
     @Test
     void getByDescriptionContaining(){
-        assertEquals(this.restTemplate.getForObject("http://localhost:"+port+"/concertsbydescription?key=Man", Concert[].class).length,1);
+        assertEquals(this.restTemplate.getForObject("http://localhost:"+port+"/organiserswithmultipleruns", Organiser[].class).length,1);
     }
 
-    /*@Test
+    @Test
     void getShowsByDuration(){
-        assertEquals(this.restTemplate.getForObject("http://localhost:"+port+"/showsbyduration?duration1=2&duration2=16", Shows[].class).length,3);
-    }*/
+        assertEquals(this.restTemplate.getForObject("http://localhost:"+port+"/showsbyduration?duration1=2&duration2=16", Shows[].class).length,1);
+    }
 }
