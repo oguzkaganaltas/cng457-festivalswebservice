@@ -9,6 +9,9 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 
 
+import java.util.LinkedHashMap;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = FestivalManagerApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -21,11 +24,15 @@ public class ConcertControllerTest {
 
     @Test
     void getByDescriptionContaining(){
-        assertEquals(this.restTemplate.getForObject("http://localhost:"+port+"/organiserswithmultipleruns", Organiser[].class).length,1);
+        List<LinkedHashMap> linkedHashMapList = this.restTemplate.getForObject("http://localhost:"+port+"/concertsbydescription?key=Man", List.class);
+        assertEquals(linkedHashMapList.get(0).get("eventId"),5);
+        assertEquals(linkedHashMapList.size(),1);
+
     }
 
     @Test
     void getShowsByDuration(){
-        assertEquals(this.restTemplate.getForObject("http://localhost:"+port+"/showsbyduration?duration1=2&duration2=16", Shows[].class).length,1);
+        List<LinkedHashMap> linkedHashMapList = this.restTemplate.getForObject("http://localhost:"+port+"/showsbyduration?duration1=2&duration2=16", List.class);
+        assertEquals(linkedHashMapList.size(),1);
     }
 }
