@@ -27,9 +27,18 @@ public class ConcertController {
         return concertService.saveConcert(concert);
     }
 
+    /**
+     * It returns the concerts with given description substring
+     * @param key String
+     * @return List
+     */
     @GetMapping("/concertsbydescription")
     public List<Concert> getByDescriptionContaining(@RequestParam(name="key", required = true) String key){ return concertService.getConcertDescContains(key);}
 
+    /**
+     * It returns the concerts that are the longests.
+     * @return List
+     */
     @GetMapping("/longestconcerts")
     public  List<Concert> getLongestConcerts(){
         return concertService.getLongestConcerts();

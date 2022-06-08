@@ -77,10 +77,19 @@ public class ConcertService {
 
     }
 
+    /**
+     * Get a list of concerts whose short description contains a given keyword.
+     * @param str String
+     * @return List
+     */
     public List<Concert> getConcertDescContains(String str){
         return concertRepository.findByDescriptionContains(str);
     }
 
+    /**
+     * Service implementation of Get a list of concerts with the longest duration. Finds all concerts and searches in service with a loop.
+     * @return List
+     */
     public List<Concert> getLongestConcerts(){
         List<Concert> concerts = concertRepository.findAll();
 

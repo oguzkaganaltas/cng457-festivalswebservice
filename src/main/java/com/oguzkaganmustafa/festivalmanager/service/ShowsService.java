@@ -74,6 +74,11 @@ public class ShowsService {
         return showsRepository.findByDurationBetween(duration1, duration2);
     }
 
+    /**
+     * Service implementation of Get a list of shows with the maximum
+     * number of performers. Finds all Shows and searches in service with a loop.
+     * @return List
+     */
     public List<Shows> getCrowdedShows() {
         List<Shows> showsList = showsRepository.findAll();
         List<Shows> result = new ArrayList<>();

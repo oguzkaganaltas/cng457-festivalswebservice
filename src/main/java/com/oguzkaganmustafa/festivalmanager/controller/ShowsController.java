@@ -26,11 +26,21 @@ public class ShowsController {
         return showsService.saveShows(shows);
     }
 
+    /**
+     * Get a list of shows whose duration is between given two durations in hours
+     * @param duration1 Int
+     * @param duration2 Int
+     * @return List
+     */
     @GetMapping("/showsbyduration")
     public List<Shows> getShowsByDuration(@RequestParam int duration1, @RequestParam int duration2){
         return showsService.getShowsByDuration(duration1,duration2);
     }
 
+    /**
+     * Get a list of shows with the maximum number of performers.
+     * @return List
+     */
     @GetMapping("/crowdedshows")
     public List<Shows> getCrowdedShows(){
         return showsService.getCrowdedShows();

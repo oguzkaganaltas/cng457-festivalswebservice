@@ -71,10 +71,21 @@ public class OrganiserService {
         return organiserRepository.save(newOrganiser);
     }
 
+    /**
+     * It returns list of organisers by the query Name Containing Or Phone Number Equals Or Email Starting With Or Surname Containing.
+     * @param name String
+     * @param phone String
+     * @param email String
+     * @return List
+     */
     public List<Organiser> organiserSearch(String name, String phone, String email) {
         return organiserRepository.findByNameContainingOrPhoneNumberEqualsOrEmailStartingWithOrSurnameContaining(name, phone, email, name);
     }
 
+    /**
+     * It returns the organisers with multiple festival runs.
+     * @return List
+     */
     public List<Organiser> getOrganiserWithMultipleRuns(){
         return organiserRepository.getOrganiserWithMultipleRunsNative();
     }
