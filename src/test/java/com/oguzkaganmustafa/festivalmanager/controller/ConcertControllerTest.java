@@ -1,7 +1,6 @@
 package com.oguzkaganmustafa.festivalmanager.controller;
 
 import com.oguzkaganmustafa.festivalmanager.FestivalManagerApplication;
-import com.oguzkaganmustafa.festivalmanager.entity.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,14 +24,26 @@ public class ConcertControllerTest {
     @Test
     void getByDescriptionContaining(){
         List<LinkedHashMap> linkedHashMapList = this.restTemplate.getForObject("http://localhost:"+port+"/concertsbydescription?key=Man", List.class);
-        assertEquals(linkedHashMapList.get(0).get("eventId"),5);
         assertEquals(linkedHashMapList.size(),1);
 
     }
 
     @Test
     void getShowsByDuration(){
-        List<LinkedHashMap> linkedHashMapList = this.restTemplate.getForObject("http://localhost:"+port+"/showsbyduration?duration1=2&duration2=16", List.class);
-        assertEquals(linkedHashMapList.size(),1);
+        List<LinkedHashMap> linkedHashMapList = this.restTemplate.getForObject("http://localhost:"+port+"/showsbyduration?duration1=45&duration2=75", List.class);
+        assertEquals(linkedHashMapList.size(),2);
     }
+
+    @Test
+    void getLongestConcerts(){
+        List<LinkedHashMap> linkedHashMapList = this.restTemplate.getForObject("http://localhost:"+port+"/longestconcerts", List.class);
+        assertEquals(linkedHashMapList.size(),2);
+    }
+
+    @Test
+    void getFestivalByName(){
+        List<LinkedHashMap> linkedHashMapList = this.restTemplate.getForObject("http://localhost:"+port+"/festivalsbyname/girne", List.class);
+        assertEquals(linkedHashMapList.size(),2);
+    }
+
 }
