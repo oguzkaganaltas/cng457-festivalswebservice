@@ -17,13 +17,26 @@ public interface FestivalRepository extends JpaRepository<Festival, Integer> {
      */
     List<Festival> findByPlace(String city);
 
-
+    /**
+     *  selects all festival where it contains a keyword. JPA query.
+     * @param name String
+     * @return List
+     */
     @Query("SELECT f FROM Festival f WHERE f.festivalName LIKE %?1%")
     List<Festival> findFestivalsByName(String name);
 
+    /**
+     *  selects all festival where it contains a keyword. Native query.
+     * @param name String
+     * @return List
+     */
     @Query(value = "SELECT * FROM festival WHERE festivalName = ?1",nativeQuery = true)
     List<Festival> findFestivalsByNameNative(String name);
 
+    /**
+     * Returns the most popular festivals with highest festival runs. native Query.
+     * @return List
+     */
     @Query(value = "SELECT f.* from festival f JOIN (select q1.festival_festival_id, max(q1.num_runs) from \n" +
             "(SELECT festival_festival_id, count(festival_festival_id) num_runs \n" +
             "from festival_run \n" +

@@ -35,11 +35,22 @@ public class OrganiserController {
         return organiserService.saveOrganiser(organiser);
     }
 
+    /**
+     * It returns list of organisers by the query Name Containing Or Phone Number Equals Or Email Starting With Or Surname Containing.
+     * @param name String
+     * @param phone String
+     * @param email String
+     * @return List
+     */
     @GetMapping("/organisersearch")
     public List<Organiser> organiserSearch(@RequestParam String name, @RequestParam String phone, @RequestParam String email){
         return organiserService.organiserSearch(name,phone,email);
     }
 
+    /**
+     * It returns the organisers with multiple festival runs.
+     * @return List
+     */
     @GetMapping("/organiserswithmultipleruns")
     public List<Organiser> getOrganiserWithMultipleRuns(){
         return organiserService.getOrganiserWithMultipleRuns();
