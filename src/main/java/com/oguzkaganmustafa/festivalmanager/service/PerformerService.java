@@ -2,8 +2,11 @@ package com.oguzkaganmustafa.festivalmanager.service;
 
 import com.oguzkaganmustafa.festivalmanager.entity.Performer;
 import com.oguzkaganmustafa.festivalmanager.repository.PerformerRepository;
+import org.springframework.aop.interceptor.PerformanceMonitorInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * PerformerService to manage repository and database communication.
@@ -21,5 +24,9 @@ public class PerformerService {
      */
     public Performer savePerformer(Performer performer){
         return performerRepository.save(performer);
+    }
+
+    public List<Performer> getAllPerformers(){
+        return performerRepository.findAll();
     }
 }
