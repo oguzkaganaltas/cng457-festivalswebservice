@@ -2,6 +2,7 @@ package com.oguzkaganmustafa.festivalmanager.controller;
 
 
 import com.oguzkaganmustafa.festivalmanager.entity.Concert;
+import com.oguzkaganmustafa.festivalmanager.entity.Festival;
 import com.oguzkaganmustafa.festivalmanager.service.ConcertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,4 +44,7 @@ public class ConcertController {
     public  List<Concert> getLongestConcerts(){
         return concertService.getLongestConcerts();
     }
+
+    @GetMapping("/getconcert/{concertId}")
+    public Concert getConcert(@PathVariable int concertId) { return concertService.getConcert(concertId); }
 }

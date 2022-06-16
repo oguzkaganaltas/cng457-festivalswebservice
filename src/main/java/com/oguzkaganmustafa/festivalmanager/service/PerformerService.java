@@ -29,4 +29,8 @@ public class PerformerService {
     public List<Performer> getAllPerformers(){
         return performerRepository.findAll();
     }
+
+    public Performer getPerformer(int performerId){
+        return performerRepository.findById(performerId).orElse(null);
+    }
 }

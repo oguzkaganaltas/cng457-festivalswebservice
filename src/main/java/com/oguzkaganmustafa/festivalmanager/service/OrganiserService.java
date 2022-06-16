@@ -89,4 +89,12 @@ public class OrganiserService {
     public List<Organiser> getOrganiserWithMultipleRuns(){
         return organiserRepository.getOrganiserWithMultipleRunsNative();
     }
+
+    public Organiser getOrganiser(String email){
+        return organiserRepository.findById(email).orElse(null);
+    }
+
+    public List<Organiser> getAllOrganisers(){
+        return organiserRepository.findAll();
+    }
 }

@@ -116,4 +116,10 @@ public class ConcertService {
         return result;
     }
 
+    public Concert getConcert(int concertId){
+        return concertRepository.findById(concertId).orElse(null);
+    }
+
+
+
 }

@@ -1,12 +1,10 @@
 package com.oguzkaganmustafa.festivalmanager.controller;
 
+import com.oguzkaganmustafa.festivalmanager.entity.Festival;
 import com.oguzkaganmustafa.festivalmanager.entity.Performer;
 import com.oguzkaganmustafa.festivalmanager.service.PerformerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,4 +32,7 @@ public class PerformerController {
     public List<Performer> getAllPerformers(){
         return performerService.getAllPerformers();
     }
+
+    @GetMapping("/getperformer/{performerId}")
+    public Performer getPerformer(@PathVariable int performerId) { return performerService.getPerformer(performerId); }
 }
