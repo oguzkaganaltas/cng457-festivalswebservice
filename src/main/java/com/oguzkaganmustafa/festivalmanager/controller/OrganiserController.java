@@ -1,5 +1,7 @@
 package com.oguzkaganmustafa.festivalmanager.controller;
 
+import com.oguzkaganmustafa.festivalmanager.entity.Concert;
+import com.oguzkaganmustafa.festivalmanager.entity.Festival;
 import com.oguzkaganmustafa.festivalmanager.entity.Organiser;
 import com.oguzkaganmustafa.festivalmanager.service.OrganiserService;
 import org.aspectj.weaver.ast.Or;
@@ -55,5 +57,11 @@ public class OrganiserController {
     public List<Organiser> getOrganiserWithMultipleRuns(){
         return organiserService.getOrganiserWithMultipleRuns();
     }
+
+    @GetMapping("/getorganiser/{email}")
+    public Organiser getOrganiser(@PathVariable String email) { return organiserService.getOrganiser(email); }
+
+    @GetMapping("/getallorganisers")
+    public List<Organiser> getAllOrganisers(){ return organiserService.getAllOrganisers(); }
 
 }
