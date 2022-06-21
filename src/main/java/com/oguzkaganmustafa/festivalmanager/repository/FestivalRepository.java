@@ -37,10 +37,10 @@ public interface FestivalRepository extends JpaRepository<Festival, Integer> {
      * Returns the most popular festivals with highest festival runs. native Query.
      * @return List
      */
-    @Query(value = "SELECT f.* from festival f JOIN (select q1.festival_festival_id, max(q1.num_runs) from \n" +
+    /*@Query(value = "SELECT f.* from festival f JOIN (select q1.festival_festival_id, max(q1.num_runs) from \n" +
             "(SELECT festival_festival_id, count(festival_festival_id) num_runs \n" +
             "from festival_run \n" +
-            "group by festival_festival_id) as q1) as q2 on q2.festival_festival_id= f.festival_id ", nativeQuery = true)
+            "group by festival_festival_id) as q1) as q2 on q2.festival_festival_id= f.festival_id ", nativeQuery = true)*/
+    @Query(value = "select f from Festival f where SIZE(f.festivalRunList) = (select max(SIZE(f2.festivalRunList)) from Festival f2)")
     List<Festival> findMostPopularFestivals();
-
 }

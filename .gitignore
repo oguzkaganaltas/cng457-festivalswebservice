@@ -32,3 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 /documentation
+/CNG-457-Phase-3-Test-Documentation.pdf
+/swc_2.sql
